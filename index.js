@@ -7,6 +7,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+app.get("/", (req, res) => {
+  res.send({ message: "Server is running!!" });
+});
+
 app.get("/getTasks", async (req, res) => {
   try {
     const todos = await TaskModel.find({});
